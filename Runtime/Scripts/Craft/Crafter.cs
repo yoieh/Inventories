@@ -201,8 +201,8 @@ namespace ExpressoBits.Inventories
                 ushort amount = requiredItem.Amount;
                 foreach (var container in containers)
                 {
-                    if(amount == 0) continue;
-                    amount = container.AddItem(requiredItem.Item,amount);
+                    if (amount == 0) continue;
+                    amount = container.AddItem(requiredItem.Item, amount);
                 }
             }
             RemoveAt(index);
@@ -212,6 +212,18 @@ namespace ExpressoBits.Inventories
         {
             if (!trackNearStations) return;
             if (!other.TryGetComponent(out CraftStationObject craftStationObject)) return;
+            OnEnter(craftStationObject);
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (!trackNearStations) return;
+            if (!other.TryGetComponent(out CraftStationObject craftStationObject)) return;
+            OnEnter(craftStationObject);
+        }
+
+        private void OnEnter(CraftStationObject craftStationObject)
+        {
             nearCraftStationObject.Add(craftStationObject);
             nearCraftStations.Add(craftStationObject.CraftStation);
             OnAddNearCraftStation?.Invoke(craftStationObject.CraftStation);
@@ -221,6 +233,18 @@ namespace ExpressoBits.Inventories
         {
             if (!trackNearStations) return;
             if (!other.TryGetComponent(out CraftStationObject craftStationObject)) return;
+            OnExit(craftStationObject);
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (!trackNearStations) return;
+            if (!other.TryGetComponent(out CraftStationObject craftStationObject)) return;
+            OnExit(craftStationObject);
+        }
+
+        private void OnExit(CraftStationObject craftStationObject)
+        {
             if (nearCraftStationObject.Remove(craftStationObject))
             {
                 nearCraftStations.Remove(craftStationObject.CraftStation);
