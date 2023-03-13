@@ -3,8 +3,9 @@ using UnityEngine;
 
 namespace ExpressoBits.Inventories
 {
+    [AddComponentMenu("Expresso Bits/Inventories/" + nameof(HotBar))]
     public class HotBar : MonoBehaviour
-    {   
+    {
         [SerializeField] private Container container;
         [SerializeField] private int slotsInHotBar = 8;
 
@@ -18,7 +19,7 @@ namespace ExpressoBits.Inventories
 
         public void ChangeSelection(int index)
         {
-            if(index < 0 || index >= slotsInHotBar) return;
+            if (index < 0 || index >= slotsInHotBar) return;
             selectionIndex = index;
             OnChangeSelection?.Invoke();
         }
@@ -26,14 +27,14 @@ namespace ExpressoBits.Inventories
         public void ScrollUp()
         {
             int nextIndex = selectionIndex + 1;
-            if(nextIndex >= slotsInHotBar) nextIndex = 0;
+            if (nextIndex >= slotsInHotBar) nextIndex = 0;
             ChangeSelection(nextIndex);
         }
 
         public void ScrollDown()
         {
             int nextIndex = selectionIndex - 1;
-            if(nextIndex < 0) nextIndex = slotsInHotBar - 1;
+            if (nextIndex < 0) nextIndex = slotsInHotBar - 1;
             ChangeSelection(nextIndex);
         }
     }

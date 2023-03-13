@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 namespace ExpressoBits.Inventories
 {
-    [AddComponentMenu("Inventories/" + nameof(Container))]
+    [AddComponentMenu("Expresso Bits/Inventories/" + nameof(Container))]
     public class Container : MonoBehaviour, IContainer<Item>, IEnumerable<Slot>
     {
         public Database Database => database;
