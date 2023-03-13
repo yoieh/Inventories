@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace ExpressoBits.Inventories
 {
+    [AddComponentMenu("Expresso Bits/Inventories/" + nameof(ItemObject))]
     public class ItemObject : MonoBehaviour
     {
 
@@ -18,7 +19,7 @@ namespace ExpressoBits.Inventories
         {
             this.isPickable = isPickable;
         }
-        
+
     }
 }
 
