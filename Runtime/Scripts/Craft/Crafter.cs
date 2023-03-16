@@ -6,7 +6,6 @@ using UnityEngine.Events;
 namespace ExpressoBits.Inventories
 {
     [AddComponentMenu("Expresso Bits/Inventories/" + nameof(Crafter))]
-    [RequireComponent(typeof(Container))]
     public class Crafter : MonoBehaviour
     {
         /// <summary>

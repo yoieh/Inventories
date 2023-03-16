@@ -8,13 +8,11 @@ namespace ExpressoBits.Inventories
     /// <summary>
     /// Handles items by picking up and adding to the default container, dropping items from containers, or switching items between containers
     /// </summary>
-    [RequireComponent(typeof(Container))]
     [AddComponentMenu("Expresso Bits/Inventories/" + nameof(ItemHandler))]
     public class ItemHandler : MonoBehaviour
     {
 
-        [SerializeField]
-        private Container[] containers;
+        [SerializeField] private Container[] containers;
         [SerializeField] private Database database;
 
         public delegate void ItemObjectEvent(ItemObject itemObject);
